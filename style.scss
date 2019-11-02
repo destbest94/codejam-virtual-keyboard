@@ -1,0 +1,75 @@
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+$func-key: #1c232e;
+
+.text {
+  height: 200px;
+  width: 80%;
+}
+
+.keyboard {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+
+  &--row {
+    display: flex;
+    margin-bottom: 8px;
+  }
+
+  &__key {
+    width: 40px;
+    height: 40px;
+    margin-left: 6px;
+    background-color: #3a424e;
+    box-shadow: 0 3px 3px #888888;
+    border-radius: 15px;
+  }
+
+  &__key-down {
+    box-shadow: none;
+    background-color: #83878d;
+  }
+}
+
+.backspace, 
+.capslock,
+.shift-left{
+  width: 100px;
+  background-color: $func-key;
+}
+
+.tab {
+  width: 50px;
+  background-color: $func-key;
+}
+
+.del {
+  width: 44px;
+  background-color: $func-key;
+}
+
+.enter,
+.shift-right {
+  width: 86px;
+  background-color: $func-key;
+}
+
+.control, 
+.ctrl,
+.win,
+.alt {
+  background-color: $func-key;
+}
+
+.space {
+  width: 330px;
+  background-color: $func-key;
+}

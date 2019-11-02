@@ -1,0 +1,90 @@
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.text {
+  height: 200px;
+  width: 80%;
+}
+
+.keyboard {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.keyboard--row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.keyboard__key {
+  width: 40px;
+  height: 40px;
+  margin-left: 6px;
+  background-color: #3a424e;
+  -webkit-box-shadow: 0 3px 3px #888888;
+          box-shadow: 0 3px 3px #888888;
+  border-radius: 15px;
+}
+
+.keyboard__key-down {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #83878d;
+}
+
+.backspace,
+.capslock,
+.shift-left {
+  width: 100px;
+  background-color: #1c232e;
+}
+
+.tab {
+  width: 50px;
+  background-color: #1c232e;
+}
+
+.del {
+  width: 44px;
+  background-color: #1c232e;
+}
+
+.enter,
+.shift-right {
+  width: 86px;
+  background-color: #1c232e;
+}
+
+.control,
+.ctrl,
+.win,
+.alt {
+  background-color: #1c232e;
+}
+
+.space {
+  width: 330px;
+  background-color: #1c232e;
+}
+/*# sourceMappingURL=style.css.map */
