@@ -21,6 +21,7 @@
 
 .keyboard {
   margin-top: 30px;
+  padding: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,6 +29,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  border: 1px solid black;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 5px #888888;
+          box-shadow: 0 5px #888888;
+  background-color: whitesmoke;
+  font-size: 14px;
 }
 
 .keyboard--row {
@@ -42,9 +49,24 @@
   height: 40px;
   margin-left: 6px;
   background-color: #3a424e;
-  -webkit-box-shadow: 0 3px 3px #888888;
-          box-shadow: 0 3px 3px #888888;
+  -webkit-box-shadow: 0 5px 2px #888888;
+          box-shadow: 0 5px 2px #888888;
   border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+
+.keyboard__key:hover {
+  cursor: pointer;
+  opacity: 0.9;
 }
 
 .keyboard__key-down {
@@ -76,7 +98,7 @@
   background-color: #1c232e;
 }
 
-.control,
+.arrow,
 .ctrl,
 .win,
 .alt {

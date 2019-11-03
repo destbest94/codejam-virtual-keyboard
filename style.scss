@@ -16,8 +16,14 @@ $func-key: #1c232e;
 
 .keyboard {
   margin-top: 30px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 0 5px #888888;
+  background-color: whitesmoke;
+  font-size: 14px;
 
   &--row {
     display: flex;
@@ -29,8 +35,17 @@ $func-key: #1c232e;
     height: 40px;
     margin-left: 6px;
     background-color: #3a424e;
-    box-shadow: 0 3px 3px #888888;
+    box-shadow: 0 5px 2px #888888;
     border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.9;
+    }
   }
 
   &__key-down {
@@ -62,7 +77,7 @@ $func-key: #1c232e;
   background-color: $func-key;
 }
 
-.control, 
+.arrow, 
 .ctrl,
 .win,
 .alt {
