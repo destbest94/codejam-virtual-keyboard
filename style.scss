@@ -41,6 +41,8 @@ $func-key: #1c232e;
     justify-content: center;
     align-items: center;
     color: white;
+    user-select: none;
+    transition: font-size 100ms;
 
     &:hover {
       cursor: pointer;
@@ -51,6 +53,8 @@ $func-key: #1c232e;
   &__key-down {
     box-shadow: none;
     background-color: #83878d;
+    font-size: 23px;
+    
   }
 }
 

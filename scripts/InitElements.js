@@ -176,7 +176,7 @@ class InitElements {
     this.rows[1].querySelector('.keyboard__key:nth-child(15)').classList.add('del', 'Delete');
 
     // row 3
-    this.rows[2].querySelector('.keyboard__key:nth-child(1)').classList.add('capslock', 'CapsLock');
+    this.rows[2].querySelector('.keyboard__key:nth-child(1)').classList.add('command', 'capslock', 'CapsLock');
     this.rows[2].querySelector('.keyboard__key:nth-child(2)').classList.add('KeyA');
     this.rows[2].querySelector('.keyboard__key:nth-child(3)').classList.add('KeyS');
     this.rows[2].querySelector('.keyboard__key:nth-child(4)').classList.add('KeyD');
@@ -191,7 +191,7 @@ class InitElements {
     this.rows[2].querySelector('.keyboard__key:nth-child(13)').classList.add('enter', 'Enter');
 
     // row 4
-    this.rows[3].querySelector('.keyboard__key:nth-child(1)').classList.add('shift-left', 'ShiftLeft');
+    this.rows[3].querySelector('.keyboard__key:nth-child(1)').classList.add('command', 'shift', 'shift-left', 'ShiftLeft');
     this.rows[3].querySelector('.keyboard__key:nth-child(2)').classList.add('KeyZ');
     this.rows[3].querySelector('.keyboard__key:nth-child(3)').classList.add('KeyX');
     this.rows[3].querySelector('.keyboard__key:nth-child(4)').classList.add('KeyC');
@@ -203,18 +203,18 @@ class InitElements {
     this.rows[3].querySelector('.keyboard__key:nth-child(10)').classList.add('Period');
     this.rows[3].querySelector('.keyboard__key:nth-child(11)').classList.add('Slash');
     this.rows[3].querySelector('.keyboard__key:nth-child(12)').classList.add('arrow', 'ArrowUp');
-    this.rows[3].querySelector('.keyboard__key:nth-child(13)').classList.add('shift-right', 'ShiftRight');
+    this.rows[3].querySelector('.keyboard__key:nth-child(13)').classList.add('command', 'shift', 'shift-right', 'ShiftRight');
 
     const keys = this.rows[4].querySelectorAll('.keyboard__key');
-    keys[0].classList.add('ctrl', 'ControlLeft');
-    keys[1].classList.add('win');
-    keys[2].classList.add('alt', 'AltLeft');
+    keys[0].classList.add('command', 'ctrl', 'ControlLeft');
+    keys[1].classList.add('command', 'win');
+    keys[2].classList.add('command', 'alt', 'AltLeft');
     keys[3].classList.add('space', 'Space');
-    keys[4].classList.add('alt', 'AltRight');
+    keys[4].classList.add('command', 'alt', 'AltRight');
     keys[5].classList.add('arrow', 'ArrowLeft');
     keys[6].classList.add('arrow', 'ArrowDown');
     keys[7].classList.add('arrow', 'ArrowRight');
-    keys[8].classList.add('ctrl', 'ControlRight');
+    keys[8].classList.add('command', 'ctrl', 'ControlRight');
   }
 
   changLang() {
@@ -273,6 +273,36 @@ class InitElements {
     }
 
     this.setValue();
+  }
+
+  onType(value) {
+    let textareaValue = this.textarea.value;
+
+    if (value === 'Backspace') {
+      if (this.textarea.selectionStart !== this.textarea.selectionEnd) {
+        // Delete selection text;
+        textareaValue = this.textarea.value.slice(0, this.textarea.selectionStart);
+        textareaValue += this.textarea.value.slice(this.textarea.selectionEnd);
+      } else {
+        textareaValue = textareaValue.slice(0, -1);
+      }
+    } else if (value === 'Del') {
+      if (this.textarea.selectionStart !== this.textarea.selectionEnd) {
+        // Delete selection text;
+        textareaValue = this.textarea.value.slice(0, this.textarea.selectionStart);
+        textareaValue += this.textarea.value.slice(this.textarea.selectionEnd);
+      } else {
+        // Todo: detect position and del;
+      }
+    } else if (value === 'Enter') {
+      textareaValue += '\n';
+    } else if (value === 'Tab') {
+      textareaValue += '\t';
+    } else {
+      textareaValue += value;
+    }
+
+    this.textarea.value = textareaValue;
   }
 
   setValue() {

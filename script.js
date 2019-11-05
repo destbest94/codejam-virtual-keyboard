@@ -1,23 +1,6 @@
 const initElements = new InitElements();
 initElements.render();
 
-const keys = {};
-
-const textarea = document.querySelector('.text');
-
-textarea.addEventListener('keyup', (event) => {
-  if (keys[event.code]) {
-    keys[event.code].push(event.key);
-  } else {
-    keys[event.code] = [event.key];
-  }
-  console.log(event);
-});
-
-textarea.addEventListener('click', () => {
-  console.log(keys);
-});
-
 document.body.addEventListener('keydown', (event) => {
   const keydown = document.querySelector(`.${event.code}`);
 
@@ -34,6 +17,15 @@ document.body.addEventListener('keydown', (event) => {
 
     if (event.shiftKey) {
       initElements.onShiftClick(event.shiftKey);
+    }
+
+    if (!keydown.classList.contains('command')) {
+      initElements.onType(keydown.innerHTML);
+
+      if (event.code === 'Tab') {
+        event.preventDefault();
+        event.stopPropagation();
+      }
     }
   }
 });
@@ -52,6 +44,8 @@ document.body.addEventListener('keyup', (event) => {
   }
 });
 
+let shift = false;
+let alt = false;
 
 document.querySelectorAll('.keyboard__key').forEach((el) => {
   el.addEventListener('mousedown', () => {
@@ -59,12 +53,33 @@ document.querySelectorAll('.keyboard__key').forEach((el) => {
       initElements.onCapsLockClick();
     } else {
       el.classList.add('keyboard__key-down');
+
+      if (el.classList.contains('shift')) {
+        shift = !shift;
+        initElements.onShiftClick(shift);
+      } else if (el.classList.contains('alt')) {
+        alt = !alt;
+      }
     }
   });
 
   el.addEventListener('mouseup', () => {
-    if (!el.classList.contains('CapsLock')) {
+    if (!(el.classList.contains('CapsLock') || (el.classList.contains('alt') && alt) || (el.classList.contains('shift') && shift))) {
       el.classList.remove('keyboard__key-down');
+      if (!el.classList.contains('command')) {
+        initElements.onType(el.innerHTML);
+      }
+    }
+
+    if (shift && alt) {
+      initElements.changLang();
+      shift = false;
+      alt = false;
+      initElements.onShiftClick(shift);
+      document.querySelector('.shift-right').classList.remove('keyboard__key-down');
+      document.querySelector('.shift-left').classList.remove('keyboard__key-down');
+      document.querySelector('.AltLeft').classList.remove('keyboard__key-down');
+      document.querySelector('.AltRight').classList.remove('keyboard__key-down');
     }
   });
 });
