@@ -1,0 +1,94 @@
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+$func-key: #1c232e;
+
+.text {
+  height: 200px;
+  width: 80%;
+}
+
+.keyboard {
+  margin-top: 30px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 0 5px #888888;
+  background-color: whitesmoke;
+  font-size: 14px;
+
+  &--row {
+    display: flex;
+    margin-bottom: 8px;
+  }
+
+  &__key {
+    width: 40px;
+    height: 40px;
+    margin-left: 6px;
+    background-color: #3a424e;
+    box-shadow: 0 5px 2px #888888;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    user-select: none;
+    transition: font-size 100ms;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.9;
+    }
+  }
+
+  &__key-down {
+    box-shadow: none;
+    background-color: #83878d;
+    font-size: 23px;
+    
+  }
+}
+
+.backspace, 
+.capslock,
+.shift-left{
+  width: 100px;
+  background-color: $func-key;
+}
+
+.tab {
+  width: 50px;
+  background-color: $func-key;
+}
+
+.del {
+  width: 44px;
+  background-color: $func-key;
+}
+
+.enter,
+.shift-right {
+  width: 86px;
+  background-color: $func-key;
+}
+
+.arrow, 
+.ctrl,
+.win,
+.alt {
+  background-color: $func-key;
+}
+
+.space {
+  width: 330px;
+  background-color: $func-key;
+}
